@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-  res.render('splash', {template: 'splash'});
+  res.render('splash', {layout: 'default', template: 'splash'});
 });
 
 /* GET home page. */

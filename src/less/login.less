@@ -1,7 +1,18 @@
 .login {
+  height: 100%;
+  position: relative;
+
   .container {
     width: 600px;
     margin: auto;
+    top: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 500px;
+    padding: 100px 50px;
+    border: 2px solid black;
   }
 
   .logo {
@@ -22,7 +33,7 @@
     width: 400px;
     margin: 60px auto;
     font-size: 24px;
-    caret-color: #5ea4bf;
+    caret-color: #6E9FAC;
     -webkit-text-fill-color: transparent;
     outline: none;
     color: black;
@@ -39,26 +50,26 @@
     text-transform: uppercase;
     font-size: 18px;
     padding: 10px;
-    letter-spacing: .1em;
-    font-family: 'Futura-Light';
+    letter-spacing: 0.1em;
+    font-family: 'Futura-Medium';
   }
 
   input[name='name']::after {
     content: 'name';
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
     display: block;
   }
 
   input[name='email']::after {
     content: 'email';
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 
   input[name='website']::after {
     content: 'website';
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 }

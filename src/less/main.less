@@ -2,12 +2,13 @@
 @import "dashboard";
 @import "splash";
 @import "login";
+@theme-color: #6E9FAC;
 
 html {
-  background-color:#f4f1e4;
+  background-color: #f4f1e4;
 
   body {
-    background-color:#f4f1e4;
+    background-color: #f4f1e4;
     font-family: 'Futura-Light', sans-serif;
   }
 
@@ -19,5 +20,23 @@ html {
     font-family: 'Futura-Bold', sans-serif;
     text-transform: uppercase;
     display: none;
+  }
+
+  a {
+    transition: all 0.3s easeout;
+
+    &:hover {
+      cursor: pointer;
+      color: #6E9FAC;
+    }
+  }
+
+  input[type='submit'] {
+    transition: all 0.3s easeout;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #6E9FAC;
+    }
   }
 }
