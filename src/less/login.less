@@ -1,0 +1,64 @@
+.login {
+  .container {
+    width: 600px;
+    margin: auto;
+  }
+
+  .logo {
+    background: url("/img/logo_dark.png");
+    background-size: cover;
+    height: 48px;
+    width: 120px;
+    margin: auto;
+  }
+
+  input[type='text'] {
+    //-webkit-appearance: none;
+    border: 0;
+    border-bottom: 1px solid #000;
+    background: 0 0;
+    padding: 10px 0;
+    display: block;
+    width: 400px;
+    margin: 60px auto;
+    font-size: 24px;
+    caret-color: #5ea4bf;
+    -webkit-text-fill-color: transparent;
+    outline: none;
+    color: black;
+  }
+
+  input[type='submit'] {
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    margin: auto;
+    display: block;
+    -webkit-appearance: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px;
+    letter-spacing: .1em;
+    font-family: 'Futura-Light';
+  }
+
+  input[name='name']::after {
+    content: 'name';
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    display: block;
+  }
+
+  input[name='email']::after {
+    content: 'email';
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  input[name='website']::after {
+    content: 'website';
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+}

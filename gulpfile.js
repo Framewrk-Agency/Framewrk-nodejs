@@ -1,19 +1,26 @@
-// Gulpfile.js running on stratumui, 
+// Gulpfile.js running on stratumui,
 // a css framework available on npmjs.com
 var gulp 	= require('gulp'),
   	less 	= require('gulp-less'),
   	concat 	= require('gulp-concat'),
   	uglify 	= require('gulp-uglify'),
-  	rename 	= require('gulp-rename');
+  	rename 	= require('gulp-rename'),
+    handlebars = require('gulp-handlebars'),
+    declare = require('gulp-declare'),
+    cleanCSS = require('gulp-clean-css');
 
 var paths = {
   styles: {
-    src: '/src/less/*.less',
-    dest: '/build/less'
+    src: 'src/less/*.less',
+    dest: 'build/css'
   },
   scripts: {
-    src: '/src/js/*.js',
-    dest: '/build/js'
+    src: 'src/js/*.js',
+    dest: 'build/js'
+  },
+  html: {
+    src: 'views/*.hbs',
+    dest: 'build/'
   }
 };
 
@@ -27,6 +34,8 @@ function styles() {
 	  basename: 'main',
 	  suffix: '.min'
 	}))
+.pipe(cleanCSS({debug: true}))
+.pipe(concat('main.min.css'))
 .pipe(gulp.dest(paths.styles.dest));
 }
 
@@ -40,16 +49,24 @@ function scripts() {
 	.pipe(gulp.dest(paths.scripts.dest));
 }
 
-function watch() {
-  gulp
-	  .watch(paths.scripts.src, scripts);
-  gulp
-  	.watch(paths.styles.src, styles);
+function templates(){
+  gulp.src('views/*.hbs')
+    .pipe(handlebars())
+    //.pipe(wrap('Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      namespace: 'MyApp.templates',
+      noRedeclare: true, // Avoid duplicate declarations
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('build/js/'));
 }
 
-var build = gulp.parallel(styles, scripts, watch);
+function watch() {
+  gulp.watch(paths.scripts.src, scripts);
+  gulp.watch(paths.styles.src, styles);
+}
 
-gulp
-  .task(build);
-gulp
-  .task('default', build);
+var build = gulp.parallel(styles, scripts, templates, watch);
+
+gulp.task(build);
+gulp.task('default', build);
