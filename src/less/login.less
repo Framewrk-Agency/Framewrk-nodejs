@@ -1,4 +1,5 @@
-.login {
+.login,
+.signup-page {
   height: 100%;
   position: relative;
 
@@ -10,7 +11,6 @@
     right: 0;
     left: 0;
     bottom: 0;
-    height: 500px;
     padding: 100px 50px;
     border: 2px solid black;
   }
@@ -23,6 +23,24 @@
     margin: auto;
   }
 
+  form {
+    .name,
+    .email,
+    .password,
+    .website {
+      width:400px;
+      margin: auto;
+    }
+
+    span {
+      display: block;
+      text-transform: uppercase;
+      width: 100%;
+      font-family: 'Futura-Medium';
+      margin-top: 10px;
+    }
+  }
+
   input[type='text'] {
     //-webkit-appearance: none;
     border: 0;
@@ -30,8 +48,8 @@
     background: 0 0;
     padding: 10px 0;
     display: block;
-    width: 400px;
-    margin: 60px auto;
+    width: 100%;
+    margin: 60px auto 0;
     font-size: 24px;
     caret-color: #6E9FAC;
     -webkit-text-fill-color: transparent;
@@ -43,7 +61,7 @@
     background: #000;
     color: #fff;
     padding: 5px;
-    margin: auto;
+    margin: 40px auto 0;
     display: block;
     -webkit-appearance: none;
     border: none;
@@ -53,23 +71,18 @@
     letter-spacing: 0.1em;
     font-family: 'Futura-Medium';
   }
+}
 
-  input[name='name']::after {
-    content: 'name';
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    display: block;
+
+.login {
+  .container {
+    height: 500px;
   }
 
-  input[name='email']::after {
-    content: 'email';
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
+}
 
-  input[name='website']::after {
-    content: 'website';
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+.signup-page {
+  .container {
+    height: 400px;
   }
 }
