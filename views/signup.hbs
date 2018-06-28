@@ -1,27 +1,15 @@
-<script>
-  const emailPassClient = Stitch.defaultAppClient.auth.getProviderClient(
-    UserPasswordAuthProviderClient.factory
-  );
-  function createUser(email, password){
-    emailPassClient.registerWithEmail("<user-email>", "<user-password>")
-      .then(() => {
-        console.log("Successfully sent account confirmation email!");
-      })
-      .catch(err => {
-        console.log("Error registering new user:", err);
-      });
-  }
-</script>
-
-
-<header>
-  <div class="logo"></div>
-</header>
-<form action="createUser()" method="post">
-  <div class="email">
-    <input type="text" name="email"><span>email</span>
-  </div>
-  <div class="password">
-    <input type="text" name="password"><span>password</span>
-  </div>
-</form>
+  <header>
+    <div class="logo"></div>
+  </header>
+  <form action="/signedup" method=post>
+    <div class="name">
+      <input type="text" name="name" class="name"><span>name</span>
+    </div>
+    <div class="email">
+      <input type="text" name="email"><span>email</span>
+    </div>
+    <div class="website">
+      <input type="text" name="website"><span>website</span>
+    </div>
+      <input type="submit" value="Submit">
+  </form>

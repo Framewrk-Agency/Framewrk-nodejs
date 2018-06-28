@@ -1,5 +1,8 @@
 this["MyApp"] = this["MyApp"] || {};
 this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};
+this["MyApp"]["templates"]["accountcreated"] = {"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "";
+},"useData":true};
 this["MyApp"]["templates"]["confirm"] = {"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "";
 },"useData":true};
@@ -21,13 +24,16 @@ this["MyApp"]["templates"]["index"] = {"compiler":[7,">= 4.0.0"],"main":function
     return "<header>\n  <h1>Framewrk</h1>\n  <div class=\"logo\"></div>\n</header>\n";
 },"useData":true};
 this["MyApp"]["templates"]["login"] = {"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "  <header>\n    <div class=\"logo\"></div>\n  </header>\n  <form>\n    <div class=\"name\">\n      <input type=\"text\" name=\"name\" class=\"name\"><span>name</span>\n    </div>\n    <div class=\"email\">\n      <input type=\"text\" name=\"email\"><span>email</span>\n    </div>\n    <div class=\"website\">\n      <input type=\"text\" name=\"website\"><span>website</span>\n    </div>\n      <input type=\"submit\" value=\"Submit\">\n  </form>\n";
+    return "<script>\n  const emailPassClient = Stitch.defaultAppClient.auth.getProviderClient(\n    UserPasswordAuthProviderClient.factory\n  );\n  function createUser(email, password){\n    emailPassClient.registerWithEmail(\"<user-email>\", \"<user-password>\")\n      .then(() => {\n        console.log(\"Successfully sent account confirmation email!\");\n      })\n      .catch(err => {\n        console.log(\"Error registering new user:\", err);\n      });\n  }\n</script>\n\n\n<header>\n  <div class=\"logo\"></div>\n</header>\n<form action=\"createUser()\" method=\"post\">\n  <div class=\"email\">\n    <input type=\"text\" name=\"email\"><span>email</span>\n  </div>\n  <div class=\"password\">\n    <input type=\"text\" name=\"password\"><span>password</span>\n  </div>\n</form>\n";
 },"useData":true};
 this["MyApp"]["templates"]["password"] = {"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "";
 },"useData":true};
+this["MyApp"]["templates"]["signjup"] = {"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "";
+},"useData":true};
 this["MyApp"]["templates"]["signup"] = {"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<script>\n  const emailPassClient = Stitch.defaultAppClient.auth.getProviderClient(\n    UserPasswordAuthProviderClient.factory\n  );\n  function createUser(email, password){\n    emailPassClient.registerWithEmail(\"<user-email>\", \"<user-password>\")\n      .then(() => {\n        console.log(\"Successfully sent account confirmation email!\");\n      })\n      .catch(err => {\n        console.log(\"Error registering new user:\", err);\n      });\n  }\n</script>\n\n\n<header>\n  <div class=\"logo\"></div>\n</header>\n<form action=\"createUser()\" method=\"post\">\n  <div class=\"email\">\n    <input type=\"text\" name=\"email\"><span>email</span>\n  </div>\n  <div class=\"password\">\n    <input type=\"text\" name=\"password\"><span>password</span>\n  </div>\n</form>\n";
+    return "  <header>\n    <div class=\"logo\"></div>\n  </header>\n  <form action=\"/signedup\" method=post>\n    <div class=\"name\">\n      <input type=\"text\" name=\"name\" class=\"name\"><span>name</span>\n    </div>\n    <div class=\"email\">\n      <input type=\"text\" name=\"email\"><span>email</span>\n    </div>\n    <div class=\"website\">\n      <input type=\"text\" name=\"website\"><span>website</span>\n    </div>\n      <input type=\"submit\" value=\"Submit\">\n  </form>\n";
 },"useData":true};
 this["MyApp"]["templates"]["splash"] = {"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div class=\"logo\"></div>\n<div class=\"line\"></div>\n<span class=\"headline\">Break the fourth wall of entrepreneurship</div>\n";
