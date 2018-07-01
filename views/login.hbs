@@ -1,27 +1,85 @@
-<script>
-  const emailPassClient = Stitch.defaultAppClient.auth.getProviderClient(
-    UserPasswordAuthProviderClient.factory
-  );
-  function createUser(email, password){
-    emailPassClient.registerWithEmail("<user-email>", "<user-password>")
-      .then(() => {
-        console.log("Successfully sent account confirmation email!");
-      })
-      .catch(err => {
-        console.log("Error registering new user:", err);
-      });
-  }
-</script>
+<!-- Base Stitch Browser SDK -->
+
+<div class="quickstart-container" id="main">
+
+    <div id="info">
+      <div id="success"></div>
+      <div id="error"></div>
+    </div>
+    <div id="logged-in" hidden>
+      <button class="btn btn-success" onclick="handleLogout()">
+        Log Out
+      </button>
+    </div>
+    <div id="finished-registration" hidden>
+      <button class="btn btn-success" onclick="showControlPanel()">
+        Go Back
+      </button>
+    </div>
+    <div id="control-panel">
+      <h4>Email/Password Authentication</h4>
+      <button class="btn btn-success" onclick="showRegistrationForm()">
+        Create a New Account
+      </button>
+      <button class="btn btn-success" onclick="showLoginForm()">
+        Log In to an Existing Account
+      </button>
+    </div>
+
+    <div id="create-a-user" hidden>
+      <h4>Create Email/Password Account</h4>
+      <label for="create-a-user-email">Email:</label>
+      <div class="input-group mb-1">
+        <input type="text" class="form-control" id="create-a-user-email" aria-label="create-a-user-email" />
+      </div>
+
+      <label for="create-a-user-password">Password:</label>
+      <div class="input-group mb-2">
+        <input type="password" class="form-control" id="create-a-user-password" aria-label="create-a-user-password" />
+      </div>
+      <button class="btn btn-success" onclick="handleSignup()">
+        Create a New Account
+      </button>
+      <button class="btn btn-secondary" onclick="showControlPanel()">
+        Go Back
+      </button>
+    </div>
 
 
-<header>
+
+    <div id="login" hidden>
+      <h4>Log In to Email/Password Account</h4>
+      <label for="login-email">Email:</label>
+      <div class="input-group mb-1">
+        <input type="text" class="form-control" id="login-email" aria-label="login-email" />
+      </div>
+
+      <label for="login-password">Password:</label>
+      <div class="input-group mb-2">
+        <input type="password" class="form-control" id="login-password" aria-label="login-password" />
+      </div>
+      <button class="btn btn-success" onclick="handleLogin()">
+        Log In
+      </button>
+      <button class="btn btn-secondary" onclick="showControlPanel()">
+        Go Back
+      </button>
+    </div>
+
+
+
+</div>
+
+<!--<header>
   <div class="logo"></div>
 </header>
-<form action="createUser()" method="post">
+<form action="validateLogin" method="post">
   <div class="email">
     <input type="text" name="email"><span>email</span>
   </div>
   <div class="password">
     <input type="text" name="password"><span>password</span>
   </div>
+  <input type="submit" value="Submit">
 </form>
+-->

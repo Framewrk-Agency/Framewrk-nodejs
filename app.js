@@ -12,6 +12,9 @@ var app = express();
 // view engine setup
 app.set('view engine', 'hbs');
 
+
+
+
 app.engine( 'hbs', hbs( {
   extname: 'hbs',
   defaultView: 'default',
@@ -34,6 +37,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+var client = Stitch.initializeDefaultAppClient('framewrk-iroeq');
+var db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('framewrk');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
