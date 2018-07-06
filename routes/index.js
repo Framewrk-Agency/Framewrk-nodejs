@@ -10,7 +10,7 @@ var request = require('request');
 
 
 router.get('/', function(req, res, next) {
-    res.render('signup', {layout: 'default', template: 'signup-page'});
+    res.render('index', {layout: 'default', template: 'home-page'});
 });
 
 router.get('/created', function(req, res, next) {

@@ -1,5 +1,7 @@
+//import Stitch, AnonymousCredential from 'mongodb-stitch-browser-sdk'
+
 function initializeAndLogin() {
-  const client = Stitch.initializeDefaultAppClient('framewrk-iroeq');
+  const client = Stitch.initializeDefaultAppClient('<your-client-app-id>');
   client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
     document.getElementById('auth-status').innerHTML =
       `Logged in as anonymous user with id ${user.id}`;

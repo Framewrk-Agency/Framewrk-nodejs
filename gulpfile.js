@@ -3,7 +3,7 @@
 var gulp 	= require('gulp'),
   	less 	= require('gulp-less'),
   	concat 	= require('gulp-concat'),
-  	uglify 	= require('gulp-uglify'),
+  	uglify 	= require('uglify-es'),
   	rename 	= require('gulp-rename'),
     handlebars = require('gulp-handlebars'),
     declare = require('gulp-declare'),
@@ -44,7 +44,7 @@ function scripts() {
 	.src(paths.scripts.src, {
 		sourcemaps: true
 	})
-	.pipe(uglify())
+	//.pipe(uglify())
 	.pipe(concat('main.min.js'))
 	.pipe(gulp.dest(paths.scripts.dest));
 }

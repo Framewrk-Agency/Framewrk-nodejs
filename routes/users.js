@@ -7,24 +7,6 @@ var MongoClient = require('mongodb').MongoClient;
 
 
 /*
-router.all('/validateLogin', function(req, res, next) {
-  var uri = "mongodb+srv://hackerdata-shard-00-01-gktww.gcp.mongodb.net";
-  var username = req.body.name;
-  var email = req.body.email;
-  var password = req.body.password;
-  MongoClient.connect(uri, function(err, client) {
-     var collection = client.db("framewrk").collection("users");
-     // perform actions on the collection object
-     db.collection('users').updateOne({owner_id: client.auth.user.id}, {$set:{username:username, email: email, password: password}}, {upsert:true})
-       ).then(() =>
-       console.log("Found docs", docs)
-     client.close();
-  });
-  console.log(reg);
-});
-*/
-//const stitchClient = Stitch.initializeDefaultAppClient("framewrk-iroeq");
-
 const emailPasswordClient = stitchClient.auth
   .getProviderClient(UserPasswordAuthProviderClient.factory, "userpass");
 
@@ -152,6 +134,6 @@ function handleError(err) {
   })[errType] || errType
   displayError(msg);
 }
-
+*/
 
 module.exports = router;
